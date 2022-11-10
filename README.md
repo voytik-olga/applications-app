@@ -1,6 +1,6 @@
 # Project challenge setup for example 'applications'
 
-In this repo you fill find a basic setup to get you started in your challenge.
+In this repo you will find a basic setup to get you started in your challenge.
 
 - `applications/backend` contains a basic Spring Boot app
 - `applications/database` contains a docker-compose file for the Postgres database
