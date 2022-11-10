@@ -1,1 +1,12 @@
-# project-challenge-senior
+# Project challenge setup for example 'applications'
+
+In this repo you fill find a basic setup to get you started in your challenge.
+
+- `applications/backend` contains a basic Spring Boot app
+- `applications/database` contains a docker-compose file for the Postgres database
+
+### Required tools
+- Java 11 (e.g. OpenJDK)
+- docker-compose
+- Maven 3
+
