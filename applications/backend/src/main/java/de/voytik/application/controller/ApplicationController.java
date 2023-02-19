@@ -32,12 +32,16 @@ public class ApplicationController {
                                                    @RequestParam Map<String,String> searchParams) {
         log.info("Incoming request to get all property applications. [propertyId: {}, searchParams: {}]",
                 propertyId, searchParams);
-        return applicationService.searchApplications(propertyId, searchParams);
+        List<ApplicationDto> applications = applicationService.searchApplications(propertyId, searchParams);
+        log.info("It were found {} applications", applications.size());
+        return applications;
     }
 
     @GetMapping("/applications/{applicationId}")
     public ApplicationDto getApplication(@PathVariable long applicationId) {
         log.info("Incoming request to get a property application. [applicationId: {}]", applicationId);
+        ApplicationDto application =  applicationService.getApplication(applicationId);
+        log.info("An application was found: {}", application);
         return applicationService.getApplication(applicationId);
     }
 
