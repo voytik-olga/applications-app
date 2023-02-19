@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "a8d05462-0f8d-4b00-9dd1-ceafac49caed",
+		"name": "Applications",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8701544"
+	},
+	"item": [
+		{
+			"name": "Create a manual application",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"manual@gmail.com\",\n    \"salutation\": \"MRS\",\n    \"firstName\": \"Olga\",\n    \"lastName\": \"Voytik\",\n    \"userComment\": \"Hier is a user comment for Olga\",\n    \"creationSource\": \"MANUAL\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/property/1/applications",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"property",
+						"1",
+						"applications"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a portal application",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"portal@gmail.com\",\n    \"salutation\": \"MR\",\n    \"firstName\": \"George\",\n    \"lastName\": \"Georgio\",\n    \"numberOfPerson\": 4,\n    \"wbsPresent\": true,\n    \"earliestMoveInDate\": \"2023-02-23\",\n    \"pets\": true,\n    \"applicantComment\": \"Hier is an applicant comment from George\",\n    \"creationSource\": \"PORTAL\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/property/1/applications",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"property",
+						"1",
+						"applications"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get an application by ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/applications/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"applications",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all applications",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/property/1/applications",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"property",
+						"1",
+						"applications"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter applications",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/property/1/applications?wbsPresent=false&email=portal@gmail.com",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"property",
+						"1",
+						"applications"
+					],
+					"query": [
+						{
+							"key": "wbsPresent",
+							"value": "false"
+						},
+						{
+							"key": "email",
+							"value": "portal@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

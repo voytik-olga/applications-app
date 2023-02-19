@@ -33,7 +33,7 @@ public class ApplicationController {
         log.info("Incoming request to get all property applications. [propertyId: {}, searchParams: {}]",
                 propertyId, searchParams);
         List<ApplicationDto> applications = applicationService.searchApplications(propertyId, searchParams);
-        log.info("It were found {} applications", applications.size());
+        log.info("{} applications were found.", applications.size());
         return applications;
     }
 
