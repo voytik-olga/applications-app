@@ -1,13 +1,15 @@
 package de.voytik.application.controller;
 
+import de.voytik.application.service.ApplicationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import de.voytik.application.dto.ApplicationDto;
-import de.voytik.application.service.ApplicationService;
 
 import javax.validation.Valid;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @Slf4j
@@ -23,6 +25,14 @@ public class ApplicationController {
         log.info("Incoming request to create a new property application. [propertyId: {}, application: {}]",
                 propertyId, applicationDto);
         applicationService.createApplication(propertyId, applicationDto);
+    }
+
+    @GetMapping("/property/{propertyId}/applications")
+    public List<ApplicationDto> getAllApplications(@PathVariable long propertyId,
+                                                   @RequestParam Map<String,String> searchParams) {
+        log.info("Incoming request to get all property applications. [propertyId: {}, searchParams: {}]",
+                propertyId, searchParams);
+        return applicationService.searchApplications(propertyId, searchParams);
     }
 
     @GetMapping("/applications/{applicationId}")
